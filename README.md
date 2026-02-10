@@ -1,8 +1,6 @@
-d# 🏠 Prices Predictor System
+<div align="center">
 
 ### *Production-Grade ML Pipeline for Real Estate Price Prediction*
-
-<div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)
 ![ZenML](https://img.shields.io/badge/ZenML-0.64.0-purple?style=flat-square)
@@ -13,65 +11,89 @@ d# 🏠 Prices Predictor System
 
 </div>
 
+### 📑 Quick Navigation
+
+- [📋 Overview](#-overview)
+- [🚀 Quick Start](#-quick-start)
+- [📚 Usage Guide](#-usage-guide)
+- [📁 Project Structure](#-project-structure)
+- [🔧 Pipeline Architecture](#-pipeline-architecture)
+- [📊 Model Details](#-model-details)
+- [📞 Support](#-support--troubleshooting)
+
 ---
 
 ## 📋 Overview
 
 **Prices Predictor System** is a production-grade machine learning pipeline for predicting house prices using the Ames Housing Dataset. The system follows MLOps best practices with automated data processing, feature engineering, model training, evaluation, and deployment capabilities.
 
-### Key Features
+### ✨ Key Features
 
-- ✅ **End-to-End ML Pipeline** - Data ingestion → Preprocessing → Feature Engineering → Model Training → Evaluation
-- ✅ **Automated Data Processing** - Missing value handling, outlier detection, feature scaling
-- ✅ **Advanced Feature Engineering** - Log transformation, feature scaling, categorical encoding
-- ✅ **Model Versioning** - ZenML integration for experiment tracking and artifact management
-- ✅ **Model Evaluation** - Automatic evaluation metrics (MSE, R² Score)
-- ✅ **Deployment Ready** - MLflow model serving with REST API support
-- ✅ **Local Predictions** - Direct model inference without server dependency
+- 🔄 **End-to-End ML Pipeline** - Data ingestion → Preprocessing → Feature Engineering → Model Training → Evaluation
+- 🛠️ **Automated Data Processing** - Missing value handling, outlier detection, feature scaling
+- ⚙️ **Advanced Feature Engineering** - Log transformation, feature scaling, categorical encoding
+- 📦 **Model Versioning** - ZenML integration for experiment tracking and artifact management
+- 📊 **Model Evaluation** - Automatic evaluation metrics (MSE, R² Score)
+- 🚀 **Deployment Ready** - MLflow model serving with REST API support
+- 💻 **Local Predictions** - Direct model inference without server dependency
 
-### Model Performance
+### 📊 Model Performance
 
 | Metric | Value |
-|--------|-------|
-| **R² Score** | 0.9221 (92.21% accuracy) |
+|:------:|:-------:|
+| **R² Score** | 0.9221 ⭐ (92.21% accuracy) |
 | **Mean Squared Error** | 0.0109 |
-| **Algorithm** | Linear Regression with Preprocessing Pipeline |
+| **Algorithm** | Linear Regression + Preprocessing |
 | **Features** | 39 house characteristics |
-| **Training Time** | ~7 seconds |
+| **Training Time** | ~7 seconds ⚡ |
 
 ---
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 📋 Prerequisites
 
 - Python 3.10+
 - Conda or pip
 - 2GB free disk space
 
-### Installation
+### 💾 Installation Steps
 
-**1. Create Conda Environment:**
+<table>
+<tr>
+<td width="50%">
+
+**Step 1️⃣: Create Environment**
 ```bash
 conda create -n ml python=3.10 -y
 conda activate ml
 ```
+</td>
+<td width="50%">
 
-**2. Install Dependencies:**
+**Step 2️⃣: Install Dependencies**
 ```bash
 pip install -r requirements.txt
 ```
+</td>
+</tr>
+<tr>
+<td colspan="2">
 
-**3. Verify Installation:**
+**Step 3️⃣: Verify Installation**
 ```bash
-python -c "import zenml, mlflow, sklearn; print('✓ All packages installed')"
+python -c "import zenml, mlflow, sklearn; print('✅ Ready to go!')"
 ```
+
+</td>
+</tr>
+</table>
 
 ---
 
 ## 📚 Usage Guide
 
-### Train Model
+### 🎯 Train Model
 
 Run the complete ML pipeline with data processing and model training:
 
@@ -79,42 +101,65 @@ Run the complete ML pipeline with data processing and model training:
 python run_pipeline.py
 ```
 
-**Output:**
-- Trained Linear Regression model
-- Evaluation metrics (R², MSE)
-- Model artifacts saved to ZenML artifact store
-- Training time: ~10 seconds
+<div align="left">
 
-### Make Predictions
+**Expected Output:**
+- ✅ Trained Linear Regression model
+- ✅ Evaluation metrics (R², MSE, RMSE)
+- ✅ Model artifacts saved to ZenML artifact store
+- ⚡ Training time: ~10 seconds
+- 📊 Accuracy: 92.21% (R² Score)
 
-**Local Prediction (Recommended):**
+</div>
+
+### 🔮 Make Predictions
+
+#### **Option 1: Local Prediction** ⭐ (Recommended)
+
 ```bash
 python predict_local.py
 ```
 
-Loads the latest trained model and predicts house price for sample input.
+✨ Loads the latest trained model and makes instant predictions without server dependency.
+
+<table>
+<tr><td>
+
+**Sample Output:**
 ```
-Output:
-  ✓ Model loaded from artifact store
-  📊 Making prediction...
-  ✓ Predicted House Price: $185,234.56
+✓ Model loaded successfully
+📊 Processing input features...
+▶️ Making prediction...
+✓ Predicted Price: $185,234.56
 ```
 
-**Deploy & Serve (Advanced):**
+</td></tr>
+</table>
+
+---
+
+#### **Option 2: Deploy & Serve** (Production Deployment)
+
 ```bash
 python run_deployment.py
 ```
 
-Starts MLflow model server at `http://127.0.0.1:8000/invocations`
+🚀 Starts MLflow REST API server at `http://127.0.0.1:8000`
 
+Send prediction requests:
 ```bash
-python sample_predict.py  # Send prediction request to server
+python sample_predict.py
 ```
 
-**Stop Deployment:**
+---
+
+#### **Option 3: Stop Deployment**
+
 ```bash
 python run_deployment.py --stop-service
 ```
+
+---
 
 ---
 
@@ -199,6 +244,8 @@ prices-predictor-system/
 
 ---
 
+---
+
 ## 🔧 Pipeline Architecture
 
 ### Training Pipeline Flow
@@ -235,6 +282,8 @@ Batch Predictions
 
 ---
 
+---
+
 ## 📊 Data Information
 
 ### Dataset: Ames Housing
@@ -251,6 +300,8 @@ Batch Predictions
 - **Structural Features**: YearBuilt, Basement, Stories
 - **Facility Features**: Bedrooms, Bathrooms, Fireplaces, Garage
 - **Sales Features**: SaleType, SaleCondition, YrSold
+
+---
 
 ---
 
@@ -286,6 +337,8 @@ seaborn==0.13.2                       # Statistical viz
 statsmodels==0.14.1                   # Statistical modeling
 zenml==0.64.0                         # ML orchestration
 ```
+
+---
 
 ---
 
@@ -325,6 +378,8 @@ Pipeline(
 
 ---
 
+---
+
 ## 📈 Monitoring & Tracking
 
 ### MLflow Integration
@@ -351,6 +406,8 @@ Model artifacts stored at:
         └── sklearn_pipeline/
             └── model
 ```
+
+---
 
 ---
 
@@ -386,6 +443,8 @@ pip install -r requirements.txt  # Reinstall all packages
 
 ---
 
+---
+
 ## 📝 Command Reference
 
 | Command | Purpose |
@@ -396,6 +455,8 @@ pip install -r requirements.txt  # Reinstall all packages
 | `python run_deployment.py --stop-service` | Stop deployment |
 | `python sample_predict.py` | Send REST prediction request |
 | `mlflow ui` | View experiment tracking dashboard |
+
+---
 
 ---
 
@@ -415,35 +476,52 @@ pip install -r requirements.txt  # Reinstall all packages
 
 ---
 
+---
+
 ## 📄 License
 
 Apache License 2.0 - See LICENSE file for details
 
 ---
 
-## 👤 Author
+## � References & Resources
 
-Machine Learning Research Project
-
----
-
-## 🔗 References
-
-- [ZenML Documentation](https://docs.zenml.io/)
-- [MLflow Documentation](https://mlflow.org/docs/latest/index.html)
-- [scikit-learn Documentation](https://scikit-learn.org/stable/documentation.html)
-- [Ames Housing Dataset](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
+| Resource | Link |
+|:------:|----------|
+| ZenML Docs | [Official Documentation](https://docs.zenml.io/) |
+| MLflow Docs | [Official Documentation](https://mlflow.org/docs/latest/index.html) |
+| scikit-learn | [Official Documentation](https://scikit-learn.org/stable/documentation.html) |
+| Dataset | [Ames Housing on Kaggle](https://www.kaggle.com/c/house-prices-advanced-regression-techniques) |
 
 ---
 
-## 📞 Support
+## 📞 Support & Troubleshooting
 
-For issues or questions:
-1. Check the **Troubleshooting** section
+**Having Issues?**
+
+| Problem | Solution |
+|---------|----------|
+| ❌ Module not found | Run: `pip install -r requirements.txt` |
+| ❌ No model found | Run: `python run_pipeline.py` first |
+| ❌ Connection refused | Start server: `python run_deployment.py` |
+| ❌ ZenML errors | Verify config: `zenml stack list` |
+
+**Need Help?**
+1. Check the **Troubleshooting** section in this README
 2. Review **Project Structure** for file locations
 3. Run individual steps to isolate problems
+4. Check MLflow dashboard: `mlflow ui`
 
 ---
 
-**Last Updated**: February 10, 2026  
-**Status**: Production Ready ✅
+<div align="center">
+
+### 📊 **Project Status**: Production Ready ✅
+
+**Made with ❤️ for ML Excellence**
+
+**Last Updated**: February 10, 2026
+
+[⬆ Back to top](#-prices-predictor-system)
+
+</div>
