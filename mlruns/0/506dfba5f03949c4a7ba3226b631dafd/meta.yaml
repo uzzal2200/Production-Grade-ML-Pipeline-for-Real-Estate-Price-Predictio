@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/ayushsingh/Desktop/end-to-end-production-grade-projects/prices-predictor-system/mlruns/0/506dfba5f03949c4a7ba3226b631dafd/artifacts
+end_time: 1770698008104
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 506dfba5f03949c4a7ba3226b631dafd
+run_name: rebellious-bear-814
+run_uuid: 506dfba5f03949c4a7ba3226b631dafd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1770698002509
+status: 3
+tags: []
+user_id: uzzal2200
